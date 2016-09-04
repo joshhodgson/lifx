@@ -74,10 +74,6 @@ lifx.prototype.setColor = function(selector, _color, _duration, _power_on, cb) {
   });
 }
 
-//For those on the other side of the pond
-lifx.prototype.setColour = function(){}
-lifx.prototype.setColour = lifx.prototype.setColor;
-
 lifx.prototype.breatheEffect = function(selector, _color, _from_color, _period, _cycles, _persist, _power_on, _peak, cb) {
   var url = 'https://api.lifx.com/v1/lights/' + selector + '/effects/breathe';
   console.log(url);
