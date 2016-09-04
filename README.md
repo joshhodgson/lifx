@@ -1,21 +1,21 @@
-# LIFX-API 
-LIFX's Official REST API NodeJs Wrapper to control the lightbulb 
+# LIFX-API
+LIFX's Official REST API NodeJs Wrapper to control the lightbulb
 
 
 ----------
 
-Usage 
+Usage
 =============
-Install the module from npm 
+Install the module from npm
 
-    ~ npm install lifx-api 
+    ~ npm install lifx-api
 
-Once installed you can instantiate your object and pass your access token. 
+Once installed you can instantiate your object and pass your access token.
 
     var lifxObj = require('lifx-api');
     var lifx = new lifxObj("ACCESS TOKEN HERE");
 
-Once the object is created you can use the function in it to control the lights. 
+Once the object is created you can use the function in it to control the lights.
 The function parameters and default values are like the ones in the official documentations for REST but made easier into functions. [(Official REST Documentation Here)](http://developer.lifx.com/)
 
 function listLights(selector, callback)
@@ -23,9 +23,9 @@ function listLights(selector, callback)
 
 Gets lights belonging to the authenticated account. Filter the lights using selectors. Properties such as id, label, group and location can be used in selectors. Most endpoints accept selectors when performing actions.
 
-> **selector** : string [(See official selector documentations here)](http://developer.lifx.com/#selectors)
+> **selector** : string [(See official selector documentations here)](https://api.developer.lifx.com/docs/selectors)
 
-> **callback**(body) : function 
+> **callback**(body) : function
 
 
 EXAMPLE RESPONSE CALLBACK BODY
@@ -61,9 +61,9 @@ function togglePower(selector, cb)
 
 Turn off lights if they are on, or turn them on if they are off. Physically powered off lights are ignored.
 
-> **selector** : string [(See official selector documentations here)](http://developer.lifx.com/#selectors)
+> **selector** : string [(See official selector documentations here)](https://api.developer.lifx.com/docs/selectors)
 
-> **callback**(body) : function (Body contains server response status if any) 
+> **callback**(body) : function (Body contains server response status if any)
 
 
 
@@ -71,43 +71,43 @@ function setPower(selector, state, duration, cb)
 ---------------------------------------
 Turn lights on, or turn lights off. You can optionally set a duration which will fade on (or off) over the given duration in seconds.
 
-> **selector** : string [(See official selector documentations here)](http://developer.lifx.com/#selectors)
+> **selector** : string [(See official selector documentations here)](https://api.developer.lifx.com/docs/selectors)
 
-> **state** : string (either "on" or "off") 
+> **state** : string (either "on" or "off")
 
 > **duration** : float (Fade to the given `state` over a duration of seconds. Defaults to `1.0`.)
 
-> **callback**(body) : function (Body contains server response status if any) 
+> **callback**(body) : function (Body contains server response status if any)
 
 
 function setColor(selector, color, duration, power_on, cb)
 ---------------------------------------
 Set the lights to any color. You can optionally set a duration which will fade between colours over the given duration in seconds.
 
-> **selector** : string [(See official selector documentations here)](http://developer.lifx.com/#selectors)
+> **selector** : string [(See official selector documentations here)](https://api.developer.lifx.com/docs/selectors)
 
-> **color** : string [(See official color documentation here)](http://developer.lifx.com/#colors)
+> **color** : string [(See official color documentation here)](https://api.developer.lifx.com/docs/colors)
 
 > **duration** : float (Fade to the given `color` over a duration of seconds. Defaults to `1.0`.)
 
 > **power_on** : boolean (Turn on first? Defaults to `true`.)
 
-> **callback**(body) : function (Body contains server response status if any) 
+> **callback**(body) : function (Body contains server response status if any)
 
 
 function breatheEffect(selector, color, from_color, period, cycles, persist, power_on, peak, cb)
 ---------------------------------------
 Performs a breathe effect by slowly fading between the given colors. If from_color is omitted then the current color is used in its place. Use the parameters to tweak the effect.
 
-> **selector** : string [(See official selector documentations here)](http://developer.lifx.com/#selectors)
+> **selector** : string [(See official selector documentations here)](https://api.developer.lifx.com/docs/selectors)
 
-> **color** : string [(See official color documentation here)](http://developer.lifx.com/#colors)
+> **color** : string [(See official color documentation here)](https://api.developer.lifx.com/docs/colors)
 
-> **from_color** : string [(See official color documentation here)](http://developer.lifx.com/#colors)
+> **from_color** : string [(See official color documentation here)](https://api.developer.lifx.com/docs/colors)
 
 > **period** : float (Period of the waveform in seconds. Defaults to `1.0`.)
 
-> **cycles** : float (Number of times to repeat, cycle counts) 
+> **cycles** : float (Number of times to repeat, cycle counts)
 
 > **persistant** :boolean (Keep state at the end of the effect? Defaults to `false`.)
 
@@ -119,21 +119,18 @@ Performs a breathe effect by slowly fading between the given colors. If from_col
 
 function pulseEffect(selector, color, from_color, period, cycles, persist, power_on, duty_cycle, cb)
 ---------------------------------------
-> **selector** : string [(See official selector documentations here)](http://developer.lifx.com/#selectors)
+> **selector** : string [(See official selector documentations here)](https://api.developer.lifx.com/docs/selectors)
 
-> **color** : string [(See official color documentation here)](http://developer.lifx.com/#colors)
+> **color** : string [(See official color documentation here)](https://api.developer.lifx.com/docs/colors)
 
-> **from_color** : string [(See official color documentation here)](http://developer.lifx.com/#colors)
+> **from_color** : string [(See official color documentation here)](https://api.developer.lifx.com/docs/colors)
 
 > **period** : float (Period of the waveform in seconds. Defaults to `1.0`.)
 
-> **cycles** : float (Number of times to repeat, cycle counts) 
+> **cycles** : float (Number of times to repeat, cycle counts)
 
 > **persistant** :boolean (Keep state at the end of the effect? Defaults to `false`.)
 
 > **power_on** :boolean (Turn on first? Defaults to `true`.)
 
 > **duty_cycle** :float (Ratio of the period where color is active. Only used for pulse. Defaults to `0.5`. Minimum `0.0`, maximum `1.0`.)
-
-
-
